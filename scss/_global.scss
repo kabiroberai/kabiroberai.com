@@ -72,9 +72,30 @@ p.lead {
 
 .dev-icons {
   font-size: 3rem;
-  .list-inline-item i {
+  .list-inline-item {
+    text-align: center;
     &:hover {
-      color: $primary;
+      color: $primary !important;
+    }
+    i, span.icon {
+      display: block;
+      padding-bottom: 5px;
+      &:before {
+        color: inherit !important;
+      }
+      &.fas {
+        font-size: 2.5rem;
+      }
+    }
+    span:not(.icon) {
+      font-size: 0.4em;
+      display: block;
+      cursor: default;
+      &.adobe-logo {
+        font-family: 'Helvetica';
+        font-size: 2rem;
+        font-weight: 700;
+      }
     }
   }
 }

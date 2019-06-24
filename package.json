@@ -1,32 +1,23 @@
 {
-    "title": "Resume",
-    "name": "startbootstrap-resume",
+    "title": "Kabir Oberai",
+    "name": "kabiroberai",
     "version": "5.0.7",
     "scripts": {
-        "start": "node_modules/.bin/gulp watch"
+        "start": "gulp watch",
+        "build": "gulp build"
     },
-    "description": "Resume is a simple, yet elegant resume and CV theme for Bootstrap 4.",
-    "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
-    ],
-    "homepage": "https://startbootstrap.com/template-overviews/resume",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume/issues",
-        "email": "feedback@startbootstrap.com"
-    },
-    "license": "MIT",
-    "author": "Start Bootstrap",
+    "description": "My website.",
+    "homepage": "https://kabiroberai.com",
+    "author": "Kabir Oberai",
     "contributors": [
-        "David Miller (http://davidmiller.io/)"
+        "Start Bootstrap"
+    ],
+    "browserslist": [
+        "defaults"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume.git"
+        "url": "https://github.com/kabiroberai/startbootstrap-resume.git"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "5.9.0",
