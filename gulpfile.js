@@ -11,6 +11,7 @@ const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
+const rsync = require("gulp-rsync");
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -122,8 +123,22 @@ function watchFiles() {
   gulp.watch('./assets/**/*', assets);
 }
 
+function upload() {
+  return gulp.src('./dist/**')
+    .pipe(rsync({
+      root: 'dist/',
+      username: 'kabiroberai',
+      hostname: 'kabiroberai.com',
+      destination: '/var/www/kabiroberai.com/',
+      archive: true,
+      compress: true,
+      silent: true
+    }));
+}
+
 // Define complex tasks
 const build = gulp.series(clean, vendor, gulp.parallel(html, css, js, assets));
 const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
+const deploy = gulp.series(build, upload);
 
-module.exports = { css, js, clean, vendor, build, watch, default: build };
+module.exports = { css, js, clean, vendor, build, watch, deploy, default: build };
