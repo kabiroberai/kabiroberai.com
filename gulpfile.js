@@ -3,15 +3,15 @@
 // Load plugins
 const browsersync = require("browser-sync").create();
 const cleanCSS = require("gulp-clean-css");
-const del = require("del");
 const gulp = require("gulp");
 const header = require("gulp-header");
 const merge = require("merge-stream");
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require("sass"));
 const uglify = require("gulp-uglify");
 const rsync = require("gulp-rsync");
+const fs = require("fs/promises");
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -38,7 +38,7 @@ function browserSync(done) {
 
 // Clean dist
 function clean() {
-  return del(['./dist']);
+  return fs.rm('./dist', { recursive: true, force: true })
 }
 
 // Bring third party dependencies from node_modules into vendor directory
@@ -71,7 +71,7 @@ function css() {
     .pipe(plumber())
     .pipe(sass({
       outputStyle: "expanded",
-      includePaths: "./node_modules",
+      includePaths: ["./node_modules"],
     }))
     .on("error", sass.logError)
     .pipe(header(banner, { pkg }))
