@@ -18,10 +18,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/kabiroberai/startbootstrap-resume.git"
+        "url": "https://github.com/kabiroberai/website.git"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.2",
+        "@fortawesome/fontawesome-free": "^6.3.0",
         "bootstrap": "^4.6.0",
         "jquery": "^3.5.1",
         "jquery.easing": "^1.4.1"
